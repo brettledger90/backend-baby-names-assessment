@@ -13,6 +13,7 @@
 import sys
 import re
 import argparse
+import os
 
 """
 Define the extract_names() function below and change main()
@@ -45,8 +46,11 @@ def extract_names(filename):
     followed by the name-rank strings in alphabetical order.
     ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
     """
-    # +++your code here+++
-    return
+    with open(filename,"r","UTF-8") as stuff:
+        red_file = stuff.read(filename)
+        print(red_file)
+
+    return "hello"
 
 
 def create_parser():
@@ -63,6 +67,7 @@ def create_parser():
 def main():
     parser = create_parser()
     args = parser.parse_args()
+    print(args.files)
 
     if not args:
         parser.print_usage()
@@ -76,7 +81,9 @@ def main():
     # +++your code here+++
     # For each filename, get the names, then either print the text output
     # or write it to a summary file
-
+    for item in file_list:
+        temp1 = extract_names(item)
+        print(temp1)
 
 if __name__ == '__main__':
     main()
